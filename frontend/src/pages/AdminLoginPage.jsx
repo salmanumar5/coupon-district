@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAdminStore } from "../store/useAdminStore";
 import { toast } from "react-hot-toast";
 import { Loader } from "lucide-react";
@@ -6,19 +6,7 @@ import { Loader } from "lucide-react";
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login, isLoggingIn, checkAuth, isCheckingAuth } = useAdminStore();
-
-  useEffect(() => {
-    checkAuth()
-  }, [])
-
-  if (isCheckingAuth) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="size-10 animate-spin" />
-      </div>
-    );
-  }
+  const { login, isLoggingIn } = useAdminStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
