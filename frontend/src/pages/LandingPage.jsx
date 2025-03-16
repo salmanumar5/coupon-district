@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaUserShield } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../lib/axios";
 
 
 export default function LandingPage() {
@@ -16,7 +17,7 @@ export default function LandingPage() {
     setMessage("");
     setCoupon(null);
     try {
-      const response = await axios.post("http://localhost:5001/api/coupons/claim");
+      const response = await axiosInstance.post("/coupons/claim");
       setCoupon(response.data.coupon);
       setMessage(response.data.message);
     } catch (error) {
