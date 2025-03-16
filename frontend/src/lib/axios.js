@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-    baseURL: import.meta.env.MODE === "development" ? "https://coupon-district.onrender.com/api" : "/api",
+    baseURL: import.meta.env.MODE === "development" ? "https://coupon-district.onrender.com/api" : "https://coupon-district.onrender.com/api",
     withCredentials: true,
 });
 
